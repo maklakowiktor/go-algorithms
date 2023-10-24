@@ -12,21 +12,19 @@ func main() {
 	//fmt.Println(algorithms.BinarySearch(items, 320))
 
 	// Linked list: 10 -> 20
-	list := &algo.ListNode{
-		Next: &algo.ListNode{
-			Next: nil,
-			Val: 20,
-		},
-		Val: 10,
-	}
+	//list := &algo.ListNode{
+	//	Next: &algo.ListNode{
+	//		Next: nil,
+	//		Val: 20,
+	//	},
+	//	Val: 10,
+	//}
+	//
+	//reversed := list.Reverse() // 2 -> 1
+	//
+	//fmt.Printf("%#v\n", list) // 1 -> 2, because original list is unchanged
+	//fmt.Printf("%#v\n", reversed)
 
-	reversed := list.Reverse() // 2 -> 1
-
-	fmt.Printf("%#v\n", list) // 1 -> 2, because original list is unchanged
-	fmt.Printf("%#v\n", reversed)
-
-}
-
-func display(str string) {
-	fmt.Println(str)
+	result := algo.EffectivePow(2, 1)
+	fmt.Println("result:", result)
 }
