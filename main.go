@@ -1,10 +1,8 @@
 package main
 
 import (
-	"algorithms/problems"
+	"algorithms/algorithms"
 	"fmt"
-	"net/http"
-	"time"
 )
 
 func main() {
@@ -87,7 +85,7 @@ func main() {
 	//	wg.Add(1)
 	//
 	//	go func(url string) {
-	//		doHTTP(url)
+	//		DoHTTP(url)
 	//		wg.Done()
 	//	}(url)
 	//}
@@ -126,18 +124,10 @@ func main() {
 	//fmt.Println(algorithms.IsAnagram("anagram", "nagaram"))
 	//fmt.Println(algorithms.IsAnagram("anmagram", "nagaram"))
 
-	problems.PrintCalendar(5, 31)
-}
+	// problems.PrintCalendar(5, 31)
 
-func doHTTP(url string) {
-	t := time.Now()
-
-	resp, err := http.Get(url)
-	if err != nil {
-		fmt.Printf("Failed to get <%s>: %s\n", url, err.Error())
-	}
-
-	defer resp.Body.Close()
-
-	fmt.Printf("<%s> - Status Code [%d] - Latency %d ms\n", url, resp.StatusCode, time.Since(t).Milliseconds())
+	arr := []int{5, 2, 1, 3, 1}
+	fmt.Println(arr)
+	algorithms.BubbleSort(&arr, len(arr))
+	fmt.Println(arr)
 }
