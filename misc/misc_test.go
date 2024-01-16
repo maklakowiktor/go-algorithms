@@ -66,3 +66,34 @@ func TestIntersectSlices(t *testing.T) {
 		}
 	})
 }
+
+func TestUniqueSlices(t *testing.T) {
+	t.Run("two same int elements", func(t *testing.T) {
+		got := UniqueSlice([]int{1, 2, 2, 4})
+		want := []int{1, 2, 4}
+		if !reflect.DeepEqual(got, want) {
+			t.Errorf("got %v want %v", got, want)
+		}
+	})
+	t.Run("multiple same string elements", func(t *testing.T) {
+		got := UniqueSlice([]string{"1", "1", "1", "1", "4"})
+		want := []string{"1", "4"}
+		if !reflect.DeepEqual(got, want) {
+			t.Errorf("got %v want %v", got, want)
+		}
+	})
+	t.Run("no same string elements", func(t *testing.T) {
+		got := UniqueSlice([]string{"a1b2c3", "0000a2222cccc3333"})
+		want := []string{"a1b2c3", "0000a2222cccc3333"}
+		if !reflect.DeepEqual(got, want) {
+			t.Errorf("got %v want %v", got, want)
+		}
+	})
+	t.Run("empty slices", func(t *testing.T) {
+		got := UniqueSlice([]string{})
+		want := []string{}
+		if !reflect.DeepEqual(got, want) {
+			t.Errorf("got %#v want %#v", got, want)
+		}
+	})
+}

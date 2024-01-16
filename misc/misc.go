@@ -61,16 +61,27 @@ func IntersectSlices[T comparable](a, b []T) []T {
 	m := make(map[T]bool)
 	intersection := []T{}
 
-	// Заполняем карту элементами из первого слайса
 	for _, item := range a {
 		m[item] = true
 	}
 
-	// Проверяем, существуют ли элементы второго слайса в карте
 	for _, item := range b {
 		if m[item] {
 			intersection = append(intersection, item)
 		}
 	}
 	return intersection
+}
+
+func UniqueSlice[T comparable](slice []T) []T {
+	uniqueSet := make(map[T]struct{})
+	result := []T{}
+
+	for _, item := range slice {
+		if _, exists := uniqueSet[item]; !exists {
+			uniqueSet[item] = struct{}{}
+			result = append(result, item)
+		}
+	}
+	return result
 }
