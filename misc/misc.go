@@ -41,3 +41,36 @@ func GetSumFromFile(fileName string) ([]string, error) {
 	}
 	return []string{strconv.Itoa(sum)}, nil
 }
+
+func SubtractSlice[T comparable](a, b []T) []T {
+	m := make(map[T]bool)
+	for _, item := range b {
+		m[item] = true
+	}
+
+	diff := []T{}
+	for _, item := range a {
+		if !m[item] {
+			diff = append(diff, item)
+		}
+	}
+	return diff
+}
+
+func IntersectSlices[T comparable](a, b []T) []T {
+	m := make(map[T]bool)
+	intersection := []T{}
+
+	// Заполняем карту элементами из первого слайса
+	for _, item := range a {
+		m[item] = true
+	}
+
+	// Проверяем, существуют ли элементы второго слайса в карте
+	for _, item := range b {
+		if m[item] {
+			intersection = append(intersection, item)
+		}
+	}
+	return intersection
+}
