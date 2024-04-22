@@ -4,9 +4,10 @@ package problems
 // https://leetcode.com/problems/missing-number
 
 func MissingNumber(nums []int) int {
-	var result int
+	var sum int
 	for i := 0; i < len(nums); i++ {
-		result += nums[i]
+		sum += nums[i]
 	}
-	return len(nums)*(len(nums)+1)/2 - result
+	sumAll := (len(nums) * (len(nums) + 1)) / 2
+	return sumAll - sum
 }
